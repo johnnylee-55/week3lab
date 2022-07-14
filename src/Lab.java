@@ -98,11 +98,14 @@ public class Lab {
 		for (int length : stringLengths) {
 			System.out.print(length + " ");
 		}
+		System.out.println();
 		
 		// write and test a method that takes an array of strings and returns true if the sum of letters for all strings with an
 		// even amount of letters is greater than the sum of those with an odd amount of letters
+		System.out.println("more even-lettered strings than odd-lettered: " + moreEvenLetters(food) );
 		
 		// write and test a method that takes a string and returns true if the string is a palindrome
+		System.out.println("is palidrome: " + isPalindrome("tacocat") );
 
 	}
 	
@@ -151,6 +154,29 @@ public class Lab {
 			stringLengths[i] = string[i].length();
 		}
 		return stringLengths;
+	}
+	
+	public static boolean moreEvenLetters(String[] array) {
+		int evencounter = 0;
+		int oddcounter = 0;
+		
+		for (String string : array ) {
+			if (string.length() % 2 == 0) {
+				evencounter += string.length();
+			} else {
+				oddcounter += string.length();
+			}
+		}
+		return evencounter > oddcounter;
+	}
+	
+	public static boolean isPalindrome(String string) {
+		for (int i = 1; i <= string.length() / 2; i++) {
+			if (string.charAt(i - 1) != string.charAt(string.length() - i) ) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
